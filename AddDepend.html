@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <script src="js/bootstrap.js"></script>
+    <script src="js/advisorspu.js"></script>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <h1>Add Course Dependency</h1>
+    
+    <div class="row">
+      <div class="col-md-3"><input type="text" id="course" class="form-control" placeholder="Course"></div>
+      <div class="col-md-2"><input type="text" id="crn" class="form-control" placeholder="CRN"></div>
+      <div class="col-md-3"><input type="text" id="depTarget" class="form-control" placeholder="Dependency"></div>
+      <div class="col-md-2">  
+
+        <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <span id="depType" data-bind="label">Select One</span>&nbsp;<span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Pre-Req</a></li>
+            <li><a href="#">Co-Req</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Duplicate</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <button type="button" id="btnAdd" class="btn btn-default btn-md">
+            <span class="glyphicon glyphicon-plus"></span> Add Depend
+        </button>    
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+    <table id="tbDepends" class="table coursetb">
+      <thead>
+        <tr>
+          <td>Course</td>
+          <td>Dependency Type</td>
+          <td>Target</td>
+        </td>
+      </thead>
+      <tr>
+        <td>MAT 1234</td> 
+        <td>Pre-Req</td> 
+        <td>CSC 1230</td> 
+      </tr>
+    </table>
+  </div>
+    <div class="col-md-4"></div>
+  </div>
+    
+
+  </body>
+</html>
