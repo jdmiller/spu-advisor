@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Table</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen" title="no title" charset="utf-8"/>
+</head>
+<body>
+	<div class="container">
+		<h3 class="text-center">
+			Fall 2014 Course Schedule
+		</h3>
+		<!--start table-->
+		<table class="table table-bordered table-striped">
+			<!--start thead-->
+			<thead>
+				<tr>
+					<th>Course</th>
+					<th>Time</th>
+					<th>Days</th>
+				</tr>
+			</thead><!--start thead-->
+			<!--start tbody-->
+			<tbody>
+				<!--start row-->
+				<tr>
+					<td>USEM</td>
+					<td>9:30 - 10:50 AM</td>
+					<td>MWF</td>
+				</tr><!--end row-->
+				<!--start row-->
+				<tr>
+					<td>COM 230</td>
+					<td>11 - 12:50PM</td>
+					<td>TTh</td>
+				</tr><!--end row-->
+				<!--start row-->
+				<tr>
+					<td>MAT 1250</td>
+					<td>1- 3PM</td>
+					<td>MWF</td>
+				</tr><!--end row-->
+				<!--start row-->
+				<tr>
+					<td>ENG 101</td>
+					<td>5-8PM</td>
+					<td>MW</td>
+				</tr><!--end row-->
+			</tbody><!--end tbody-->
+		</table><!--end table-->
+	</div>
+</body>
+</html>
