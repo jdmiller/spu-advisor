@@ -1,0 +1,44 @@
+  <script src="js/libs/jquery-1.10.2.js"></script>
+  <script src="sc.js"></script>
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+
+<div class="container">
+    <div class="row clearfix">
+    <div class="col-md-12 column">
+      <table class="table table-bordered table-hover" id="tab_logic">
+        <thead>
+          <tr >
+            <th class="text-center">
+              Course
+            </th>
+            <th class="text-center">
+              Dependency Type
+            </th>
+            <th class="text-center">
+              Target
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id='addr0'>
+            <td>
+            <input type="text" name='course0'  placeholder='Course' class="form-control"/>
+            </td>
+            <td>
+            <input type="text" name='dependtype0' placeholder='Dependency Type' class="form-control"/>
+            </td>
+            <td>
+            <input type="text" name='target0' placeholder='Target' class="form-control"/>
+            </td>
+          </tr>
+                    <tr id='addr1'></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <a id="add_row" class="btn btn-default pull-left">Add Row</a><a id='delete_row' class="pull-right btn btn-default">Delete Row</a>
+</div>
+

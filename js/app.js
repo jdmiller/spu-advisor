@@ -2,6 +2,7 @@
 var App = Ember.Application.create();
 
 App.Router.map(function() {
+  this.resource('courses', {path:'/courses'});
   this.resource('depends', {path:'/depends'});
   this.resource('schedule', {path:'/schedule'});
   });
@@ -9,6 +10,12 @@ App.Router.map(function() {
 App.DependsRoute = Ember.Route.extend({
   model: function(){
     return App.DEPENDS;
+  }
+});
+
+App.CoursesRoute = Ember.Route.extend({
+  model: function(){
+    return App.COURSES;
   }
 });
 
@@ -41,6 +48,25 @@ App.DEPENDS = [
     type: "Equiv"
   }
   ]
+
+App.COURSES = [
+  {
+    id: 1,
+    course: "CSC2430",
+    crn: 23234,
+  },
+  {
+    id: 2,
+    course: "CSC2430",
+    crn: 34343,
+  },
+  {
+    id: 3,
+    course: "CSC2430",
+    crn: 12222,
+  }
+  ]
+
 
   App.SCHEDULE = [
   {
