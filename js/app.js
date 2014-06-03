@@ -1,17 +1,22 @@
 
-var App = Ember.Application.create();
+var App = Ember.Application.create({
+  LOG_TRANSITIONS: true
+});
+
+var i =1;
 
 App.Router.map(function() {
   this.resource('courses', {path:'/courses'});
-  this.resource('depends', {path:'/depends'});
+  this.resource('major', {path:'/major'});
   this.resource('schedule', {path:'/schedule'});
   });
 
-App.DependsRoute = Ember.Route.extend({
+App.MajorRoute = Ember.Route.extend({
   model: function(){
-    return App.DEPENDS;
+    return App.MAJOR;
   }
 });
+
 
 App.CoursesRoute = Ember.Route.extend({
   model: function(){
@@ -25,7 +30,39 @@ App.ScheduleRoute = Ember.Route.extend({
   }
 });
 
-App.DEPENDS = [
+App.CoursesController = Ember.ObjectController.extend({
+  actions: {
+    add: function(){
+      $('#addr'+i).html("<td><input name='name"+i+"' type='text' placeholder='Course' class='form-control input-md'  /> </td><td><input  name='dependtype"+i+"' type='text' placeholder='Days'  class='form-control input-md'></td><td><input  name='target"+i+"' type='text' placeholder='Time'  class='form-control input-md'></td>");
+      $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
+      i++; 
+    },
+    remove: function(){
+      if(i>1){
+        $("#addr"+(i-1)).html('');
+        i--;
+        }
+    }
+  }
+});
+
+App.MajorController = Ember.ObjectController.extend({
+    actions: {
+    add: function(){
+      $('#depends'+i).html("<td><select name='"+i+"'class='form-control'><option>EE 1030</option><option>EE 2340</option><option>CSC 4760</option></select></td><td><select class='form-control'><option>Pre-Req</option><option>Co-Req</option><option>Equiv</option></select></td><td><select class='form-control'><option>EE 1030</option><option>EE 2340</option><option>CSC 4760</option></select></td>");
+      $('#tab_logic').append('<tr id="depends'+(i+1)+'"></tr>');
+      i++; 
+    },
+    remove: function(){
+      if(i>1){
+        $("#depends"+(i-1)).html('');
+        i--;
+        }
+    }
+  }
+});
+
+App.MAJOR = [
   {
     id: 1,
     course: "CSC2430",
