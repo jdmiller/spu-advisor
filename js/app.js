@@ -1,35 +1,39 @@
-
 var App = Ember.Application.create({
   LOG_TRANSITIONS: true
 });
 
 var i =1;
 
+//The router- defines the destination url of routes
 App.Router.map(function() {
   this.resource('courses', {path:'/courses'});
   this.resource('major', {path:'/major'});
   this.resource('schedule', {path:'/schedule'});
   });
 
+
+//Major Route- backed by a list of majors
 App.MajorRoute = Ember.Route.extend({
   model: function(){
     return App.MAJOR;
   }
 });
 
-
+//Course Route- backed by a list of courses 
 App.CoursesRoute = Ember.Route.extend({
   model: function(){
     return App.COURSES;
   }
 });
 
+//Schedule route- backed by data for an example schedule
 App.ScheduleRoute = Ember.Route.extend({
   model: function(){
     return App.SCHEDULE;
   }
 });
 
+//Allows courses to be added to the master course list
 App.CoursesController = Ember.ObjectController.extend({
   actions: {
     add: function(){
@@ -46,6 +50,7 @@ App.CoursesController = Ember.ObjectController.extend({
   }
 });
 
+//Allows dependencies to be added to a particular major
 App.MajorController = Ember.ObjectController.extend({
     actions: {
     add: function(){
@@ -62,6 +67,7 @@ App.MajorController = Ember.ObjectController.extend({
   }
 });
 
+///Some test data
 App.MAJOR = [
   {
     id: 1,

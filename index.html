@@ -35,139 +35,137 @@
     {{outlet}}
   </script>
 
+  <!--Template for home page-->
   <script type="text/x-handlebars" data-template-name="index">
     <div class="container">
         <h1>Welcome</h1>
         <p class="lead">Welcome to Advisor SPU. It will simplify the advising process</p>
-
         <div class="list-group">
-
         </div>
     </div>
   </script>
 
-
+  <!--Template for Major Builder page where depencies are added-->
    <script type="text/x-handlebars" data-template-name="major">
-   <div class="row bottom-buffer">
-   <div class="col-md-2"><select class="form-control"><option>General Engineering</option></select></div>
-   <div class="col-md-8"></div>
-   </div>
-  <div class="container">
+     <div class="row bottom-buffer">
+       <div class="col-md-2"><select class="form-control"><option>General Engineering</option></select></div>
+       <div class="col-md-8"></div>
+     </div>
+    <div class="container">
+        <div class="row clearfix">
+        <div class="col-md-6 column">
+          <table class="table table-bordered table-hover" id="tab_logic">
+            <thead>
+              <tr >
+                <th class="text-center">
+                  Dependency
+                </th>
+                <th class="text-center">
+                  Type
+                </th>
+                <th class="text-center">
+                  Course
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id='depends0'>
+                <td>
+               <select class="form-control"><option>EE 1030</option><option>EE 2340</option><option>CSC 4760</option></select>
+                </td>
+                <td>
+                <select class="form-control"><option>Pre-Req</option><option>Co-Req</option><option>Equiv</option></select>
+                </td>
+                <td>
+                <select class="form-control"><option>EE 1030</option><option>EE 2340</option><option>CSC 4760</option></select>
+                </td>
+              </tr>
+              <tr id='depends1'></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3"><div {{action "remove" post on="click"}} class="pull-right btn btn-default">-</div></div>  
+        <div class="col-md-6"><div {{action "add" post on="click"}} class="pull-left btn btn-default">+</div></div>  
+      </div>
+      </div>
+   </script>
+
+  <!--Template example of outputted schedule-->
+  <script type="text/x-handlebars" data-template-name="schedule">
+    <div class="container">
+      <h3 class="text-left">
+        Fall 2014 Course Schedule
+      </h3>
+      <div class="col-md-6 column">
+        <table class="table table-bordered table-striped">
+          <tr>
+            <th>Course</th>
+            <th>Time</th>
+            <th>Days</th>
+          </tr>
+          {{#each}}
+          <tr>
+            <td>{{course}}</td> 
+            <td>{{time}}</td> 
+            <td>{{days}}</td> 
+          </tr>
+          {{/each}}
+        </table>
+        </div>
+    </div>
+  </script>
+
+  <!--Template for master course builder-->
+  <script type="text/x-handlebars" data-template-name="courses">
+    <div class="container">
       <div class="row clearfix">
       <div class="col-md-6 column">
         <table class="table table-bordered table-hover" id="tab_logic">
           <thead>
             <tr >
               <th class="text-center">
-                Dependency
-              </th>
-              <th class="text-center">
-                Type
-              </th>
-              <th class="text-center">
                 Course
+              </th>
+              <th class="text-center">
+                Days
+              </th>
+              <th class="text-center">
+                Time
               </th>
             </tr>
           </thead>
           <tbody>
-            <tr id='depends0'>
+            <tr id='addr0'>
               <td>
-             <select class="form-control"><option>EE 1030</option><option>EE 2340</option><option>CSC 4760</option></select>
+              <input type="text" name='course0'  placeholder='Course' class="form-control"/>
               </td>
               <td>
-              <select class="form-control"><option>Pre-Req</option><option>Co-Req</option><option>Equiv</option></select>
+              <input type="text" name='dependtype0' placeholder='Days' class="form-control"/>
               </td>
               <td>
-              <select class="form-control"><option>EE 1030</option><option>EE 2340</option><option>CSC 4760</option></select>
+              <input type="text" name='target0' placeholder='Time' class="form-control"/>
               </td>
             </tr>
-            <tr id='depends1'></tr>
+                      <tr id='addr1'></tr>
           </tbody>
         </table>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-3"><div {{action "remove" post on="click"}} class="pull-right btn btn-default">-</div></div>  
-      <div class="col-md-6"><div {{action "add" post on="click"}} class="pull-left btn btn-default">+</div></div>  
-    </div>
-    </div>
-   </script>
-
-  <script type="text/x-handlebars" data-template-name="schedule">
-  <div class="container">
-    <h3 class="text-left">
-      Fall 2014 Course Schedule
-    </h3>
-    <div class="col-md-6 column">
-      <table class="table table-bordered table-striped">
-        <tr>
-          <th>Course</th>
-          <th>Time</th>
-          <th>Days</th>
-        </tr>
-        {{#each}}
-        <tr>
-          <td>{{course}}</td> 
-          <td>{{time}}</td> 
-          <td>{{days}}</td> 
-        </tr>
-        {{/each}}
-      </table>
-      </div>
-  </div>
+      <div class="row">
+          <div class="col-md-3"><div {{action "remove" post on="click"}} class="pull-right btn btn-default">-</div></div>  
+          <div class="col-md-6"><div {{action "add" post on="click"}} class="pull-left btn btn-default">+</div></div>  
+        </div>
+     </div>
   </script>
 
-  <script type="text/x-handlebars" data-template-name="courses">
-  <div class="container">
-    <div class="row clearfix">
-    <div class="col-md-6 column">
-      <table class="table table-bordered table-hover" id="tab_logic">
-        <thead>
-          <tr >
-            <th class="text-center">
-              Course
-            </th>
-            <th class="text-center">
-              Days
-            </th>
-            <th class="text-center">
-              Time
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr id='addr0'>
-            <td>
-            <input type="text" name='course0'  placeholder='Course' class="form-control"/>
-            </td>
-            <td>
-            <input type="text" name='dependtype0' placeholder='Days' class="form-control"/>
-            </td>
-            <td>
-            <input type="text" name='target0' placeholder='Time' class="form-control"/>
-            </td>
-          </tr>
-                    <tr id='addr1'></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-  
-  <div class="row">
-      <div class="col-md-3"><div {{action "remove" post on="click"}} class="pull-right btn btn-default">-</div></div>  
-      <div class="col-md-6"><div {{action "add" post on="click"}} class="pull-left btn btn-default">+</div></div>  
-    </div>
-</div>
-  </script>
-
+  <!--Javascript libraries-->
   <script src="js/libs/jquery-1.10.2.js"></script>
   <script src="js/libs/handlebars-1.1.2.js"></script>
   <script src="js/libs/ember-1.5.0.js"></script>
   <script src="js/app.js"></script>
   <script src="js/ember-data.js"></script>
   <script src="sc.js"></script>
-  <script src="https://cdn.firebase.com/v0/firebase.js"></script>
-<script src='https://cdn.firebase.com/v0/firebase-simple-login.js'></script>
-<!--<script src="http://builds.emberjs.com/ember-latest.js"></script>-->
    <body>
 </html>
